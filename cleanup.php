@@ -2,11 +2,11 @@
 /**
  * Magento Table Maintenance Script
  * Put this file in the root of the magento install and then in browser go to:
- * http://DOMAIN.COM/cleanup.php?clean=log
+ * http://DOMAIN.COM/cleanup.php?clean=log.
  */
 
 // Look at what action has been asked cleanup.php?clean=[command]
-switch($_GET['clean']) {
+switch ($_GET['clean']) {
     // If log has been requested, run the clean_log_tables() function
     case 'log':
         clean_log_tables();
@@ -21,7 +21,7 @@ function clean_log_tables()
     $xml = simplexml_load_file('./app/etc/local.xml', null, LIBXML_NOCDATA);
 
     // If there is data found
-    if(is_object($xml)) {
+    if (is_object($xml)) {
         // Create variables containing the username, password, database etc.. (If there is a table prefix, it will get this also)
         $db['host'] = $xml->global->resources->default_setup->connection->host;
         $db['name'] = $xml->global->resources->default_setup->connection->dbname;
